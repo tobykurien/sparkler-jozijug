@@ -1,0 +1,16 @@
+create table presentations (
+  id bigint auto_increment,
+  title varchar(255),
+  presenter_id bigint
+);
+
+create table members (
+  id bigint auto_increment,
+  name varchar(255)
+);
+
+create table attendees (
+  id bigint auto_increment,
+  presentation_id bigint,
+  member_id bigint
+);

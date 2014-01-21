@@ -1,0 +1,14 @@
+{{< index}}
+
+{{$content}}
+   List of JoziJUG presentations: {{presos.size}}
+   {{#presos}}
+   <ul>
+         <li> {{title}}
+         <li> Presented by: {{presenter.name}}
+         <li> Attendees: {{#attendees}}{{member.name}}{{/attendees}}
+   </ul>
+   {{/presos}}
+{{/content}}
+
+{{/index}}
