@@ -22,6 +22,6 @@ class Presentation extends Model {
    }
    
    def getAttendees() {
-      getAll(Member).toMaps
+      getAll(Member)
    }
 }
