@@ -13,9 +13,9 @@ class JoziJug implements SparkApplication {
    val pres = Model.with(Presentation)
    
    override init() {
-      DatabaseManager.init(Presentation.package.name)
       // these are optional initializers, must be set before routes
       //setPort(4567) // port to bind on startup, default is 4567
+      DatabaseManager.init(Presentation.package.name)
 
       // Set up path to static files
       val workingDir = System.getProperty("user.dir")
@@ -24,9 +24,8 @@ class JoziJug implements SparkApplication {
       // Homepage
       get("/") [req, res|
          DbConnection.run [
-            var presos = pres.all.orderBy("title")
             render("views/list.html", #{
-               "presos" -> presos
+               "presos" -> pres.all.orderBy("title")
             })
          ]
       ]

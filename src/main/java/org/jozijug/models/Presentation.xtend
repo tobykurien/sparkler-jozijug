@@ -7,7 +7,8 @@ import org.javalite.activejdbc.annotations.BelongsTo
 import org.javalite.activejdbc.annotations.Many2Many
 
 @BelongsTo(parent=Member, foreignKeyName = "presenter_id")
-@Many2Many(other=Member, join="attendees", 
+@Many2Many(
+   other=Member, join="attendees", 
    sourceFKName="presentation_id", targetFKName="member_id"
 )
 class Presentation extends Model { 
