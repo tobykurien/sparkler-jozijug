@@ -22,7 +22,6 @@ class Presentation extends Model {
    }
    
    def getAttendees() {
-      val attendees = get("attendees") as LazyList<Member>
-      attendees.include(Member).toMaps
+      getAll(Member).toMaps
    }
 }
