@@ -37,6 +37,7 @@ class JoziJugTest extends TestSupport {
       preso.add(att1)
       preso.add(att2)
       
+      the(preso.title).shouldBeEqual("Sparkler")      
       the(preso.presenter.id).shouldBeEqual(toby.id)
       the(preso.attendees.length).shouldBeEqual(2)
    }

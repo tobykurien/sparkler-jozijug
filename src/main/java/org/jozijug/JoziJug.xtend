@@ -2,13 +2,12 @@ package org.jozijug
 
 import com.tobykurien.sparkler.db.DatabaseManager
 import com.tobykurien.sparkler.transformer.JsonTransformer
+import com.tobykurien.sparkler.utils.DbConnection
 import org.javalite.activejdbc.Model
-import org.jozijug.models.Member
 import org.jozijug.models.Presentation
 import spark.servlet.SparkApplication
 
 import static com.tobykurien.sparkler.Sparkler.*
-import com.tobykurien.sparkler.utils.Log
 
 class JoziJug implements SparkApplication {
    val pres = Model.with(Presentation)
@@ -32,8 +31,13 @@ class JoziJug implements SparkApplication {
          ]
       ]
       
-      get(new JsonTransformer("/api/presentation") [req, res|
+      // simple REST demo
+      get(new JsonTransformer("/api/presentations") [req, res|         
          pres.all
+      ])
+
+      get(new JsonTransformer("/api/presentation/:id") [req, res|         
+         pres.findById(req.params("id"))
       ])
    }
    
